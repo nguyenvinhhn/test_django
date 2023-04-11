@@ -1,0 +1,12 @@
+[2023-04-11 09:21:44,341: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-04-11 09:21:44,348: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-11 09:21:45,359: INFO/MainProcess] mingle: all alone
+[2023-04-11 09:21:45,369: WARNING/MainProcess] /usr/local/lib/python3.6/site-packages/celery/fixups/django.py:202: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+[2023-04-11 09:21:45,370: INFO/MainProcess] celery@f474ec3c1b5e ready.
+[2023-04-11 09:25:00,249: INFO/MainProcess] Connected to redis://redis:6379/0
+[2023-04-11 09:25:00,256: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-11 09:25:01,283: INFO/MainProcess] mingle: all alone
+[2023-04-11 09:25:01,289: WARNING/MainProcess] /usr/local/lib/python3.6/site-packages/celery/fixups/django.py:202: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+[2023-04-11 09:25:01,289: INFO/MainProcess] celery@f474ec3c1b5e ready.

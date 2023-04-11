@@ -1,0 +1,9 @@
+
+docker-compose run web python manage.py migrate
+    web: ở đây là config trong docker-compose.yml
+
+
+
+
+--- Linux ---
+ - search port: sudo lsof -i -P -n | grep LISTEN
