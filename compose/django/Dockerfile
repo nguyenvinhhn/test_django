@@ -12,6 +12,11 @@ RUN mkdir /static
 
 # Creating Work Directory
 WORKDIR /src
+# ADD . /src/
+COPY ./src/requirements_test/docker.txt /src/requirements_test/docker.txt
+RUN pip install -r /src/requirements_test/docker.txt
+
+# RUN pip install -r /src/docker.txt
 
 # un-comment the following two dependecies if you want to add library like pandas, scipy and numpy
 # openblas \ 

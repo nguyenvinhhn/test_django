@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView
 from .tasks import show_hello_world
 from .models import DemoModel
+from django.http import HttpResponse
+from django.views import View
 # Create your views here.
 
 
@@ -15,3 +17,13 @@ class ShowHelloWorld(TemplateView):
         context = super().get_context_data(**kwargs)
         context['demo_content'] = DemoModel.objects.all()
         return context
+
+def index_view(request):
+    return HttpResponse('xin chao')
+
+class IndexView(View):
+    def get(self, request): # class nên cần phải có self
+        return HttpResponse('ham get')
+
+    def post(self, request):
+        return HttpResponse('ham post')
