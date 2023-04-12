@@ -12,3 +12,9 @@ def show_hello_world():
     logger.info("-"*25)
     logger.info("Printing Hello from Celery")
     logger.info("-"*25)
+
+@app.task
+def debug_task():
+    logger.info("-"*25)
+    logger.info("test lap lich")
+    logger.info("-"*25)

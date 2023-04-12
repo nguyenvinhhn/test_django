@@ -5,33 +5,44 @@ volumes:
   local_postgres_data_backups: {}
 
 services:
+  # n ginx là một máy chủ web, khi có người dùng request đến thì nó sẽ xử lý cái request đấy như nào
+  # nó sẽ chuyển cái request đấy đi đâu, nó có thể dùng làm proxy, cân bằng tải(load balance)
+  # proxy là: chúng ta bị chặn địa chỉ ip đến 1 trang web nào đấy nhưng ở singapo thì không bị chặn
+  # chúng ta sẽ đặt máy ở singgapo có dữ liệu và dữ liệu được chuyển về web chúng ta
+
+  # n ginx làm nhiệm vụ là: web của mình có rất nhiều sevice con bên trong, mình dùng n ginx điều hướng đến máy
+  # chủ cụ thể, dùng nó để chuyển về cổng khác
+
   nginx:
     image: nginx:alpine
+    # pull ngix:alpine về dùng trong docker hub
     container_name: nz01
     ports:
       - "8000:8000"
-    volumes:
-      - ./src:/src
+    volumes: # phân vùng bộ nhớ
+      - ./src:/src # tạo ra thư mục :src trong máy ảo docker gắn kết với thư mục ./src trên máy thật
+                   # vì máy ảo bộ nhớ nó không liên quan gì đến máy thật nên ta phải tạo phân vùng để liên quan máy thật
+                      # để máy thật đọc source
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
-      - web
+      - web # phụ thuộc vào web (web phải tồn tại thì ngix mới chạy)
     networks:
       - djangonetwork
-  web:
-    build:
-      context: .
+  web: # chạy django trong đây ( vì có cái build bên dưới)
+    # cái cái image thì nó có cái ảnh sẵn rồi, còn web này mình tự build
+    build: # build here
+      context: .  # context: . tức là bối cảnh trong thư mục này
       dockerfile: compose/django/Dockerfile
     container_name: dz01
     depends_on:
       - db
     volumes:
       - ./src:/src
-      - .:/src
-    expose:
+    expose: # expose ra cổng 8000
       - "8000"
     links:
       - redis
-    env_file:
+    env_file: # file môi trường
       - ./.envs/.django
     networks:
       - djangonetwork
@@ -50,13 +61,14 @@ services:
     networks:
       - djangonetwork
   
-  worker:
+  worker: # giống crontab
     env_file:
       - ./.envs/.django
     build:
       context: .
       dockerfile: compose/django/Dockerfile
     command: celery worker --app mydjango --loglevel info --logfile celery-worker.log
+    # celery là một thư viện của python để làm task queue
     volumes:
       - ./src:/src
     depends_on:
@@ -64,7 +76,7 @@ services:
     networks:
       - djangonetwork
   
-  schedule:
+  schedule: # giống crontab
     env_file:
       - ./.envs/.django
     build:

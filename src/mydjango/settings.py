@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -130,6 +131,13 @@ MEDIA_URL = '/media/'
 CELERY_BROKER_URL = 'redis://redis:6379/0' # nếu trong docker-compose.yml đặt tên là redis_1 thì ở đây củng phải redis_1
 CELERY_BACKEND_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
+# CELERY_BEAT_SCHEDULE = {
+#     'debug-task': {
+#         # Only for debug, should remove in production
+#         'task': 'myapp.tasks.debug_app',
+#         'schedule': crontab(minute='*/1')
+#     }
+# }
 
 STATIC_ROOT = './static/'
 MEDIA_ROOT = './media/'

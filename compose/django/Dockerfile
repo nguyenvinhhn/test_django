@@ -12,11 +12,7 @@ RUN mkdir /static
 
 # Creating Work Directory
 WORKDIR /src
-# ADD . /src/
-COPY ./src/requirements_test/docker.txt /src/requirements_test/docker.txt
-RUN pip install -r /src/requirements_test/docker.txt
-
-# RUN pip install -r /src/docker.txt
+# chuyển WORKDIR về thư mục /src
 
 # un-comment the following two dependecies if you want to add library like pandas, scipy and numpy
 # openblas \ 
@@ -50,3 +46,12 @@ RUN pip install --no-cache-dir -r /scripts/requirements.pip
 
 # CMD will run when this dockerfile is running
 CMD ["sh", "-c", "python manage.py collectstatic --no-input; python manage.py migrate; gunicorn mydjango.wsgi -b 0.0.0.0:8000"]
+# chạy câu lệnh trên máy ảo
+# lệnh: python manage.py collectstatic --no-input; 
+    # nó sẽ copy các thư mục static từ app(css,front,img,js) django copy vào thư mục static
+        # để vất nó lên 1 cái CDN (một nền tảng chuyên phục vụ file static nó nhanh hơn, 
+         # máy chủ chúng ta không cần làm việc đó )
+        #vd CDN: cloudflare hoặc 1 CDN free nào đó
+
+
+# chạy máy chủ với cổng 8000: gunicorn mydjango.wsgi -b 0.0.0.0:8000
