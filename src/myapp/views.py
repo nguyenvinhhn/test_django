@@ -3,6 +3,7 @@ from .tasks import show_hello_world
 from .models import DemoModel
 from django.http import HttpResponse
 from django.views import View
+from django.shortcuts import render
 # Create your views here.
 
 
@@ -27,3 +28,11 @@ class IndexView(View):
 
     def post(self, request):
         return HttpResponse('ham post')
+
+def tester(request):
+    context = {
+        'form' : 'test'
+    }
+    return render(request, 'myapp/index.html', context)
+
+

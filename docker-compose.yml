@@ -47,20 +47,40 @@ services:
     networks:
       - djangonetwork
     # command: /usr/local/bin/gunicorn mydjango.wsgi.application -w 2 -b :8000 --reload
+  # db:
+  #   image: postgres:10
+  #   build:
+  #     context: .
+  #     dockerfile: compose/postgres/Dockerfile
+  #   container_name: pz01
+  #   env_file:
+  #     - ./.envs/.postgres
+  #   volumes:
+  #     - local_postgres_data:/var/lib/postgresql/data
+  #     - local_postgres_data_backups:/backups
+  #   networks:
+  #     - djangonetwork
   db:
     image: postgres:10
     build:
       context: .
       dockerfile: compose/postgres/Dockerfile
     container_name: pz01
-    env_file:
-      - ./.envs/.postgres
+    # env_file:
+      # - ./.envs/.postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-django_db}
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
       - local_postgres_data_backups:/backups
     networks:
       - djangonetwork
-  
+
   worker: # giống crontab
     env_file:
       - ./.envs/.django
