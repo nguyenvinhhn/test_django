@@ -4,6 +4,9 @@ build:
 up:
 	docker-compose up -d
 
+down:
+	docker-compose down
+
 up-non-daemon:
 	docker-compose up
 

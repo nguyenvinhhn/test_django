@@ -29,6 +29,9 @@ urlpatterns = [
     # path('home/', index_view, name='home'),
     path("polls/", include("myapp.urls")),
     path('demo/', IndexView.as_view(), name='abc' ),
+    path('demo-new/', IndexView.as_view(), name='abc' ),
+    path('demo-new-2/', IndexView.as_view(), name='abc' ),
+    path('demo-new-4/', IndexView.as_view(), name='abc' ),
 ]
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

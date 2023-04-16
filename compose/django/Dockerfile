@@ -38,14 +38,16 @@ RUN pip install --no-cache-dir -r /scripts/requirements.pip
 
 # *install psycopg2 if you don't have it requirements.pip*
 # RUN pip install --no-cache-dir psycopg2
-
+COPY . .
 # removing temporary packages from docker and removing cache 
 # RUN apk del build-deps && \
 #     find -type d -name __pycache__ -prune -exec rm -rf {} \; && \
 #     rm -rf ~/.cache/pip
 
 # CMD will run when this dockerfile is running
-CMD ["sh", "-c", "python manage.py collectstatic --no-input; python manage.py migrate; gunicorn mydjango.wsgi -b 0.0.0.0:8000"]
+# CMD ["sh", "-c", "python manage.py collectstatic --no-input; python manage.py migrate; gunicorn mydjango.wsgi -b 0.0.0.0:8000"]
+# CMD ["sh", "-c", "python manage.py collectstatic --no-input; python manage.py migrate; gunicorn mydjango.wsgi:application -w 2  --bind 0.0.0.0:8000 --reload"]
+# CMD ["sh", "-c", "python manage.py collectstatic --no-input; python manage.py migrate; gunicorn mydjango.wsgi:application -w 2  --bind 0.0.0.0:8000 --reload"]
 # chạy câu lệnh trên máy ảo
 # lệnh: python manage.py collectstatic --no-input; 
     # nó sẽ copy các thư mục static từ app(css,front,img,js) django copy vào thư mục static

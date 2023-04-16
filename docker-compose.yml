@@ -30,6 +30,7 @@ services:
       - djangonetwork
   web: # chạy django trong đây ( vì có cái build bên dưới)
     # cái cái image thì nó có cái ảnh sẵn rồi, còn web này mình tự build
+    restart: always
     build: # build here
       context: .  # context: . tức là bối cảnh trong thư mục này
       dockerfile: compose/django/Dockerfile
@@ -47,6 +48,8 @@ services:
     networks:
       - djangonetwork
     # command: /usr/local/bin/gunicorn mydjango.wsgi.application -w 2 -b :8000 --reload
+    # command: python manage.py runserver gunicorn mydjango.wsgi:application -w 2 --bind 0.0.0.0:8000 --reload --settings=project.settings.local
+    command: gunicorns mydjango.wsgi:application --bind 0.0.0.0:8000 --reload
   # db:
   #   image: postgres:10
   #   build:
