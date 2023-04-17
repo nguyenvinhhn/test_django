@@ -1,12 +1,18 @@
-    {% extends 'myapp/base.html' %}
-    
-    {% block content_1  %}
-        {% if data %}
-            {% for item in data %}
-                <p>{{ item.question_text }}</p>
-            {% endfor %} 
-        {% else %}
-            <h3> Câu hỏi này không tồn tại </h3>
-        {% endif %} 
-    {% endblock  %}
+{% extends 'myapp/base.html' %}
 
+{% block content_1 %}
+    {% if qs %}
+        <form>
+            <ul>
+                {% for item in qs.choice_set.all %}
+                    <li>
+                        <input type="radio" value="{{ item.id }}" /> {{ item.choice_text }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </form>
+        <p></p>
+    {% else %}
+        <h3>Câu hỏi này không tồn tại</h3>
+    {% endif %}
+{% endblock %}

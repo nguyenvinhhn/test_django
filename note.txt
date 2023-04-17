@@ -2,6 +2,34 @@
 docker-compose run web python manage.py migrate
     web: ở đây là config trong docker-compose.yml
 
+--- vs code format template django---
+https://marketplace.visualstudio.com/items?itemName=junstyle.vscode-django-support
+tạo file trong dự án gốc
+    .prettierrc
+        {
+            "singleQuote": true,
+            "printWidth": 80,
+            "editor.formatOnSave": true,
+            "proseWrap": "always",
+            "tabWidth": 4,
+            "requireConfig": false,
+            "useTabs": false,
+            "trailingComma": "none",
+            "bracketSpacing": true,
+            "jsxBracketSameLine": false,
+            "semi": true
+        }
+
+    .editorconfig
+        indent_style = tab
+        indent_size = 4
+        
+        
+    .prettier.json
+        formatted by prettier, can automatic search prettier config file in the dirs, such as .prettierrc, .prettier.json...;
+
+        you can reference prettier. how to set tabsize
+
 
 
 
