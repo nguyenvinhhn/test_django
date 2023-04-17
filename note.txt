@@ -9,4 +9,12 @@ docker-compose run web python manage.py migrate
  - search port: sudo lsof -i -P -n | grep LISTEN
 
 
-continue: end bai 4
+continue: https://www.youtube.com/watch?v=-TlEmxT7T_E&list=PLZEIt444jqpB1j3RD4BrYm9JmNVYuzVNm&index=10
+    13:13
+
+
+--- Shell ---
+from myapp.models import Question
+a = Question.objects.get(pk=1)
+b = a.choice_set.all() // choice là tên model gán thêm _set
+b[0].choice_text

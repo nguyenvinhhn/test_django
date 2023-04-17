@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="">Đây là template <b>{{name}}</b></div>
-    <p class="">Test</p>
-    <h1>Asset</h1>
-    <ul>
-        {% for item in taiSan %}
-            <li>{{item}}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+
+    
+    {% extends 'myapp/base.html' %}
+    
+    {% block content_1  %}
+        <div class="">Đây là template <b>{{name}}</b></div>
+        <p class="">Test</p>
+        <h1>Asset</h1>
+        <ul>
+            {% for item in taiSan %}
+                {% if item != 'test_1' %}
+                    <li>{{item}}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endblock  %}
+

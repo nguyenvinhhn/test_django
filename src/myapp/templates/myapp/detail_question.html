@@ -1,0 +1,12 @@
+    {% extends 'myapp/base.html' %}
+    
+    {% block content_1  %}
+        {% if data %}
+            {% for item in data %}
+                <p>{{ item.question_text }}</p>
+            {% endfor %} 
+        {% else %}
+            <h3> Câu hỏi này không tồn tại </h3>
+        {% endif %} 
+    {% endblock  %}
+

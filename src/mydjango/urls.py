@@ -20,14 +20,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-from myapp.views import ShowHelloWorld, index_view, IndexView, tester
+from myapp.views import ShowHelloWorld, index_view, IndexView, tester, viewlist
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', ShowHelloWorld.as_view()),
     # path('home/', index_view, name='home'),
-    path("polls/", include("myapp.urls")),
+    path("myapp/", include("myapp.urls")),
     path('demo/', IndexView.as_view(), name='abc' ),
     path('demo-new/', IndexView.as_view(), name='abc' ),
     path('demo-new-2/', IndexView.as_view(), name='abc' ),

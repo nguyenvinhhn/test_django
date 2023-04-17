@@ -3,8 +3,9 @@ from .tasks import show_hello_world
 from .models import DemoModel
 from django.http import HttpResponse
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 # Create your views here.
+from .models import Question
 
 
 class ShowHelloWorld(TemplateView):
@@ -30,11 +31,23 @@ class IndexView(View):
         return HttpResponse('ham post')
 
 def tester(request):
-    taiSan = ['maytinh', 'dien thoai']
+    taiSan = ['maytinh', 'dien thoai', 'test_1', 'test_2']
     context = {
         'name' : 'test_name',
         'taiSan': taiSan
     }
     return render(request, 'myapp/index.html', context)
 
+def viewlist(request):
+    list_question = get_list_or_404(Question, pk=2) # pk=2 tìm khóa chính(id) = 2
+    # list_question = get_list_or_404(Question, question_text='Bạn bao nhiêu tuỏi')
+    # list_question = Question.objects.all()
+    context = {"data": list_question}
+    return render(request, 'myapp/question_list.html', context)
 
+def detailView(request, question_id):
+    q = Question.objects.get(pk=question_id)
+    context = {
+        'qs': q
+    }
+    return render(request, 'myapp/detail_question.html', context)

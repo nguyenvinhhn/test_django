@@ -1,0 +1,10 @@
+    {% extends 'myapp/base.html' %}
+    
+    {% block content_1  %}
+        {% if qs %}
+            {% for item in qs.choice_set.all %}
+                <p>{{ item.choice_text }}</p>
+            {% endfor %} 
+        {% endif %} 
+    {% endblock  %}
+
