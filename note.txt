@@ -9,4 +9,4 @@ docker-compose run web python manage.py migrate
  - search port: sudo lsof -i -P -n | grep LISTEN
 
 
-continue: 
+continue: end bai 4

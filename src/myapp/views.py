@@ -30,8 +30,10 @@ class IndexView(View):
         return HttpResponse('ham post')
 
 def tester(request):
+    taiSan = ['maytinh', 'dien thoai']
     context = {
-        'form' : 'test'
+        'name' : 'test_name',
+        'taiSan': taiSan
     }
     return render(request, 'myapp/index.html', context)
 
