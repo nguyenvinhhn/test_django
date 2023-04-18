@@ -9,9 +9,8 @@ urlpatterns = [
     # path('list/', viewlist, name='view_list' ),
     # path('detail/<int:question_id>', views.detailView, name='detail' ),
     # path('<int:question_id>', views.vote, name='vote' ),
-    path('', views.index, name='index' ),
-    path('add/', views.add_post, name='add' ),
-    path('save/', views.save_news, name='save' ),
+    path('', views.IndexClass.as_view(), name='index' ),
+    path('save/', views.ClassSaveNews.as_view(), name='save' ),
     path('email/', views.email_view, name='email' ),
     path('process/', views.process, name='process' ),
 
