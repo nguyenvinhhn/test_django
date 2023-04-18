@@ -1,0 +1,14 @@
+{% extends 'myapp/base.html' %}
+
+{% block content_1 %}
+    {% if q %}
+        <h1>
+            {{ q.question_text }}
+        </h1>
+        <p>Kết quả của cuộc bình chọn là:</p>
+        {% for item in q.choice_set.all  %}
+            <p>{{item.choice_text}} : vote = {{ item.vote }}</p>
+        {% endfor %}
+        <a href="{% url 'myapp:view_list' %}">Vote tiếp</a>
+    {% endif %}
+{% endblock %}

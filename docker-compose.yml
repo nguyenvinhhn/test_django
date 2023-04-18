@@ -47,11 +47,13 @@ services:
       - ./.envs/.django
     networks:
       - djangonetwork
-    # command: /usr/local/bin/gunicorn mydjango.wsgi.application -w 2 -b :8000 --reload
-    # command: python manage.py runserver gunicorn mydjango.wsgi:application -w 2 --bind 0.0.0.0:8000 --reload --settings=project.settings.local
-    # command: python manage.py runserver 0.0.0.0:8000
     command: [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
     # command: gunicorns mydjango.wsgi:application --bind 0.0.0.0:8000 --reload
+    # command: >
+    #   bash -c "python wait_for_db.py &&
+    #            ./manage.py migrate &&
+    #            ./manage.py runserver 0.0.0.0:8000" # Again, note that I am simply exe
+
   # db:
   #   image: postgres:10
   #   build:

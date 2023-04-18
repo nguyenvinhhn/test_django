@@ -2,16 +2,20 @@
 
 {% block content_1 %}
     {% if qs %}
-        <form>
+        <h1>{{ qs.question_text }}</h1>
+        <form action="{% url 'myapp:vote' qs.id %}" method='post'>
+            {% csrf_token %}
             <ul>
                 {% for item in qs.choice_set.all %}
                     <li>
-                        <input type="radio" value="{{ item.id }}" /> {{ item.choice_text }}
+                        <input type="radio" value="{{ item.id }}" name="choice" /> {{ item.choice_text }}
                     </li>
                 {% endfor %}
+                <p>
+                    <input type="submit" value="gửi" />
+                </p>
             </ul>
         </form>
-        <p></p>
     {% else %}
         <h3>Câu hỏi này không tồn tại</h3>
     {% endif %}

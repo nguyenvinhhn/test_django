@@ -52,3 +52,17 @@ def detailView(request, question_id):
         'qs': q
     }
     return render(request, 'myapp/detail_question.html', context)
+
+def vote(request, question_id):
+    q = Question.objects.get(pk=question_id)
+    try:
+        dulieu = request.POST['choice']
+        c = q.choice_set.get(pk=dulieu)
+        c.vote = c.vote + 1
+    except:
+        return HttpResponse('Lỗi không có choice')
+
+    c.save()
+
+    context = { 'q': q }
+    return render(request, 'myapp/result.html', context)

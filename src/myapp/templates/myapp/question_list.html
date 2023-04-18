@@ -1,10 +1,11 @@
-    {% extends 'myapp/base.html' %}
-    
-    {% block content_1  %}
-        {% if data %}
-            {% for item in data %}
-                <p>{{ item.question_text }}</p>
-            {% endfor %} 
-        {% endif %} 
-    {% endblock  %}
+{% extends 'myapp/base.html' %}
 
+{% block content_1 %}
+    {% if data %}
+    {% for item in data %}
+        <a href="{% url 'myapp:detail' item.id %}">
+            <p>{{ item.question_text }}</p>
+        </a>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -1,26 +1,20 @@
+
+{% load static %}
 <!DOCTYPE html>
 
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <style>
-            .header {
-                padding: 30px;
-                background-color: #CCC;
-                color: #FFF
-            }
-        </style>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{% static 'myapp/style.css' %}" />
     </head>
     <body>
-
         <div class="header">
             <h1>My website</h1>
-        </div> 
+        </div>
         <div class="menu">
             <ul>
                 <li>link 1</li>
@@ -28,10 +22,11 @@
                 <li>link 3</li>
                 <li>link 4</li>
             </ul>
-        </div> 
+        </div>
 
         <div class="noidung">
             {% block content_1 %}
+
             {% endblock %}
         </div>
         <script src="" async defer></script>
