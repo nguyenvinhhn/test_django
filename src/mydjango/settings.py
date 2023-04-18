@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'myapp.apps.MyappConfig',
     'news.apps.NewsConfig',
     'celery',
+    'Login.apps.LoginConfig',
 ]
 
 MIDDLEWARE = [

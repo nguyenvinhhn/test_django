@@ -37,8 +37,8 @@ tạo file trong dự án gốc
  - search port: sudo lsof -i -P -n | grep LISTEN
 
 
-    https://www.youtube.com/watch?v=w63XbDduqWA&list=PLZEIt444jqpB1j3RD4BrYm9JmNVYuzVNm&index=21
-    5:50
+    https://www.youtube.com/watch?v=tNonsihMEiU&list=PLZEIt444jqpB1j3RD4BrYm9JmNVYuzVNm&index=24&ab_channel=SonNguyen
+    0:00
 
 
 --- Shell ---

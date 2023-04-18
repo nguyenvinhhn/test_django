@@ -25,7 +25,8 @@ from myapp.views import ShowHelloWorld, index_view, IndexView, tester, viewlist
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', ShowHelloWorld.as_view()),
+    url('', include('Login.urls')),
+    # url(r'^$', ShowHelloWorld.as_view()),
     # path('home/', index_view, name='home'),
     path("myapp/", include("myapp.urls")),
     path('demo/', IndexView.as_view(), name='abc' ),
