@@ -218,9 +218,3 @@
 [2023-04-19 03:32:30,102: WARNING/MainProcess] /usr/local/lib/python3.6/site-packages/celery/fixups/django.py:202: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
   warnings.warn('Using settings.DEBUG leads to a memory leak, never '
 [2023-04-19 03:32:30,102: INFO/MainProcess] celery@8b88cdc63262 ready.
-[2023-04-19 04:39:10,257: INFO/MainProcess] Connected to redis://redis:6379/0
-[2023-04-19 04:39:10,267: INFO/MainProcess] mingle: searching for neighbors
-[2023-04-19 04:39:11,296: INFO/MainProcess] mingle: all alone
-[2023-04-19 04:39:11,306: WARNING/MainProcess] /usr/local/lib/python3.6/site-packages/celery/fixups/django.py:202: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
-  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
-[2023-04-19 04:39:11,307: INFO/MainProcess] celery@5209b5e8e0ed ready.

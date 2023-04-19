@@ -60,7 +60,8 @@ ROOT_URLCONF = 'mydjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates'],
+        'DIRS': ['./templates'], # thư mục cùng cấp với static, tạo thêm thư mục admin bên trong để ghi đề admin base
+        # 'DIRS': [os.path.join(BASE_DIR, './templates')], # thư mục tự định nghĩa
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +73,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'mydjango.wsgi.application'
 
@@ -144,6 +146,19 @@ CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 # }
 
 STATIC_ROOT = './static/'
+""" 
+    STATIC_ROOT này khi dùng câu lệnh trong manage.py nó sẽ lấy tất cả các static của các cái app
+        nhét vào thư mục static (gộp tất cả vào một)
+    vd: tạo 1 thư mục static cùng cấp với thư mục manage.py
+    command: python manage.py -> sẽ hiển thị ra những câu lệnh manage có
+    command: python manage.py collectstatic -> lấy data cho thư mục static
+
+"""
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR),
+]
+
 MEDIA_ROOT = './media/'
 
 LOGGING = {
