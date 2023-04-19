@@ -109,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'Login.MyUser' # MyUser là một class trong model của app Login, kế thừa AbstractUser
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
