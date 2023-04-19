@@ -20,21 +20,22 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
-from myapp.views import ShowHelloWorld, index_view, IndexView, tester, viewlist
+# from myapp.views import ShowHelloWorld, index_view, IndexView, tester, viewlist
 
+from user import views as UserViews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('', include('Login.urls')),
-    # url(r'^$', ShowHelloWorld.as_view()),
+    url('', include('core.urls')),
+    # url(r'^$', UserViews.indexHome),
     # path('home/', index_view, name='home'),
-    path("myapp/", include("myapp.urls")),
-    path('demo/', IndexView.as_view(), name='abc' ),
-    path('demo-new/', IndexView.as_view(), name='abc' ),
-    path('demo-new-2/', IndexView.as_view(), name='abc' ),
-    path('demo-new-4/', IndexView.as_view(), name='abc' ),
-    path('demo-new-5/', IndexView.as_view(), name='abc' ),
-    path("news/", include("news.urls")),
+    # path("myapp/", include("myapp.urls")),
+    # path('demo/', IndexView.as_view(), name='abc' ),
+    # path('demo-new/', IndexView.as_view(), name='abc' ),
+    # path('demo-new-2/', IndexView.as_view(), name='abc' ),
+    # path('demo-new-4/', IndexView.as_view(), name='abc' ),
+    # path('demo-new-5/', IndexView.as_view(), name='abc' ),
+    # path("news/", include("news.urls")),
 ]
 # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp.apps.MyappConfig',
-    'news.apps.NewsConfig',
+    # 'myapp.apps.MyappConfig',
+    # 'news.apps.NewsConfig',
     'celery',
-    'Login.apps.LoginConfig',
+    # 'Login.apps.LoginConfig',
+    'cart.apps.CartConfig',
+    'order.apps.OrderConfig',
+    'product.apps.ProductConfig',
+    'user.apps.UserConfig',
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'Login.MyUser' # MyUser là một class trong model của app Login, kế thừa AbstractUser
+# AUTH_USER_MODEL = 'Login.MyUser' # MyUser là một class trong model của app Login, kế thừa AbstractUser
+AUTH_USER_MODEL = 'user.CustomerUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
