@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'core.apps.CoreConfig',
     'car.apps.CarConfig',
-    'course',
+    # 'course',
+    'learn',
 ]
 
 # REST_FRAMEWORK = { # nếu dùng cái này phải làm theo model car
