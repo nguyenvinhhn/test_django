@@ -29,7 +29,7 @@ urlpatterns = [
     url('', include('core.urls')),
     url('', include('car.urls')),
     # url('', include('course.urls')),
-    url('', include('learn.urls')),
+    url('user/', include('learn.urls')),
     # url(r'^$', UserViews.indexHome),
     # path('home/', index_view, name='home'),
     # path("myapp/", include("myapp.urls")),

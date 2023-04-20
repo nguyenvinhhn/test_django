@@ -2,6 +2,11 @@
 docker-compose run web python manage.py migrate
     web: ở đây là config trong docker-compose.yml
 
+--------- serializer --------
+    - xử lý api method post submit data gửi json lên
+    - validate data json
+    - khi dùng trong model nó sẽ conver dữ liệu sang json rồi trả ra
+
 --- vs code format template django---
 https://marketplace.visualstudio.com/items?itemName=junstyle.vscode-django-support
 tạo file trong dự án gốc
@@ -37,8 +42,8 @@ tạo file trong dự án gốc
  - search port: sudo lsof -i -P -n | grep LISTEN
 
 
-    https://www.youtube.com/watch?v=tNonsihMEiU&list=PLZEIt444jqpB1j3RD4BrYm9JmNVYuzVNm&index=24&ab_channel=SonNguyen
-    0:00
+    https://www.youtube.com/watch?v=yoOsUCeItMI&list=PLZEIt444jqpB1j3RD4BrYm9JmNVYuzVNm&index=43
+    44:00
 
 
 --- Shell ---
