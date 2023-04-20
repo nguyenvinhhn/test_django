@@ -42,13 +42,24 @@ INSTALLED_APPS = [
     # 'myapp.apps.MyappConfig',
     # 'news.apps.NewsConfig',
     'celery',
+    'rest_framework',
     # 'Login.apps.LoginConfig',
     'cart.apps.CartConfig',
     'order.apps.OrderConfig',
     'product.apps.ProductConfig',
     'user.apps.UserConfig',
     'core.apps.CoreConfig',
+    'car.apps.CarConfig',
+    'course',
 ]
+
+# REST_FRAMEWORK = { # nếu dùng cái này phải làm theo model car
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#       'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

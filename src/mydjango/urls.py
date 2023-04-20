@@ -27,6 +27,8 @@ from user import views as UserViews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('', include('core.urls')),
+    url('', include('car.urls')),
+    url('', include('course.urls')),
     # url(r'^$', UserViews.indexHome),
     # path('home/', index_view, name='home'),
     # path("myapp/", include("myapp.urls")),
